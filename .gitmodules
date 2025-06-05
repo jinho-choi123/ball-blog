@@ -1,0 +1,6 @@
+[submodule "theme/book"]
+	path = theme/book
+	url = https://github.com/getzola/book.git
+[submodule "themes/book"]
+	path = themes/book
+	url = https://github.com/getzola/book.git
