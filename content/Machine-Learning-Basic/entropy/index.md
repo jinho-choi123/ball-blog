@@ -3,9 +3,7 @@ title = "Entropy"
 slug = "entropy"
 +++
 
-# Entropy
-
-### Information theory
+## Information theory
 
 Let's say I want to send the result of 10 coin-flips with only 0 and 1(which is called bit). We can send it by sending 1 if Head appears, and 1 if Tail appears.
 
@@ -15,7 +13,7 @@ Some might answer that we have to send 100 bits. Sending an answer of following 
 
 Clever people would answer \\(log_2(100)\\). This could be achieved by sending answers of following questions: is it bigger than 50? is it bigger than 25/75? ...
 
-### Definition of Entropy
+## Definition of Entropy
 
 Entropy is the quantity of the information. In other words, # of required bits to represent the information.
 
@@ -27,7 +25,7 @@ How can we express if the Head / Tail probability is 30% / 70%?
 
 Would it be \\(log_2(2)\\)? No. Since we know that Tail occur more often, simply representing it as `is it Tail?` isn't optimal to compact the informations into bits.
 
-#### Examples
+### Examples
 
 Let's look at the example. Machine A, and Machine B
 
@@ -62,7 +60,7 @@ If the probability distribution is even, then we need more bits(a.k.a # of quest
     <figcaption>Entropy function for single coin flip. p is the probability of Head.</figcaption>
 </figure>
 
-### References
+## References
 
 \[1] [https://hyunw.kim/blog/2017/10/14/Entropy.html](https://hyunw.kim/blog/2017/10/14/Entropy.html)
 
