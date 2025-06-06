@@ -13,10 +13,11 @@ As we went through this at [Entropy](@/Machine-Learning-Basic/entropy/index.md),
 
 We use following strategy R for Machine P.
 
-<img src="machineP.svg" alt="How to get character of machine A"/>
+<img src="machineP.svg" alt="Strategy R for Machine P"/>
 
 We use following strategy S for Machine Q.
-<img src="machineQ.svg" alt="How to get character of machine A"/>
+
+<img src="machineQ.svg" alt="Strategy Q for Machine Q"/>
 
 ## Cross Entropy
 What if we apply Strategy S to Machine P? or Strategy R to Machine Q?
@@ -42,4 +43,4 @@ As two distribution P, Q gets similar, cross-entropy gets smaller. This is the k
 For ground-truth distribution P, and learnable distribution Q. We train Q(output of the learnable model) to be similar to distribution P. The training objective would be `Make the cross-entropy smaller!!`
 
 ## Refernces
-[1] https://hyunw.kim/blog/2017/10/26/Cross_Entropy.html
+[1] [https://hyunw.kim/blog/2017/10/26/Cross_Entropy.html](https://hyunw.kim/blog/2017/10/26/Cross_Entropy.html)
