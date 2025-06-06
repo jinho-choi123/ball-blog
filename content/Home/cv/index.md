@@ -1,6 +1,6 @@
 +++
 title = "Curriculum Vitae"
-slug= "main"
+slug= "cv"
 +++
 
 Hi, I'm CS major undergraduate student at KAIST(Korean Advanced Institute of Science Technology).
@@ -13,4 +13,4 @@ Thank you!
 ## Contact
 LinkedIn: [https://www.linkedin.com/in/jinho-choi-921432215](https://www.linkedin.com/in/jinho-choi-921432215)
 
-Email: choijinho817@gmail.com
+Email: <choijinho817@gmail.com>
