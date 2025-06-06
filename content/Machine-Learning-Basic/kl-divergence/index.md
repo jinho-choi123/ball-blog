@@ -30,7 +30,9 @@ $$KL(P||Q) \ne KL(Q||P)$$
 ## Jensen-Shannon Divergence
 JS-divergence is also used to express the entropy difference between two probability distribution. It is defined as followings:
 
-$$JSD(P||Q) = \frac{1}{2} KL(P||M) | \frac{1}{2} KL(Q||M) \\ Where \ M=\frac{1}{2}(P+Q)$$
+$$ \begin{aligned}
+&JSD(P||Q) = \frac{1}{2} KL(P||M) + \frac{1}{2} KL(Q||M) \\\\
+&where \ M=\frac{1}{2}(P+Q) \end{aligned}$$
 
 JS-divergence is expressed using KL-divergence, but not used as much as KL-divergence.
 

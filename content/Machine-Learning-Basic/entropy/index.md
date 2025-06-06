@@ -11,7 +11,7 @@ Another example is sending an number between 1\~100.
 
 Some might answer that we have to send 100 bits. Sending an answer of following 100 questions: is it 1, is it 2, is it 3, ... is it 100.
 
-Clever people would answer \\(log_2(100)\\). This could be achieved by sending answers of following questions: is it bigger than 50? is it bigger than 25/75? ...
+Clever people would answer $log_2(100)$. This could be achieved by sending answers of following questions: is it bigger than 50? is it bigger than 25/75? ...
 
 ## Definition of Entropy
 
@@ -23,7 +23,7 @@ In the examples at [#information-theory](page-1.md#information-theory "mention")
 
 How can we express if the Head / Tail probability is 30% / 70%?
 
-Would it be \\(log_2(2)\\)? No. Since we know that Tail occur more often, simply representing it as `is it Tail?` isn't optimal to compact the informations into bits.
+Would it be $log_2(2)$? No. Since we know that Tail occur more often, simply representing it as `is it Tail?` isn't optimal to compact the informations into bits.
 
 ### Examples
 
