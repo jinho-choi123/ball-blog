@@ -1,0 +1,3 @@
+[submodule "themes/zola-gitbook-theme"]
+	path = themes/zola-gitbook-theme
+	url = git@github.com:jinho-choi123/zola-gitbook-theme.git
