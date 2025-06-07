@@ -57,7 +57,11 @@ As we use higher N(max-degree for orthonormal polynomial basis), it approximates
 
 ## References
 [1] [https://arxiv.org/abs/2008.07669](https://arxiv.org/abs/2008.07669)
+
 [2] [https://hychiang.info/blog/2024/hippo_matrices/](https://hychiang.info/blog/2024/hippo_matrices/)
+
 [3] [https://github.com/state-spaces/s4](https://github.com/state-spaces/s4)
+
 [4] [https://kyujinpy.tistory.com/146](https://kyujinpy.tistory.com/146)
+
 [5] [https://hazyresearch.stanford.edu/blog/2020-12-05-hippo](https://hazyresearch.stanford.edu/blog/2020-12-05-hippo)
