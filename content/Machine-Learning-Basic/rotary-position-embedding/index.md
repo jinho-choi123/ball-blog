@@ -103,9 +103,13 @@ We can simply expand the 2D form of RoPE into multi-dim.
 RoPE perfectly fits with Linear Transformer
 
 In linear transformer, we can rewrite the attention method as follows:
+
 shape of $Q, K$: (seq_len, d_model)
+
 shape of $V$: (seq_len, d_model // n_head)
-$Q_m$ means the th row of matrix $Q$
+
+$Q_m$ means the $m$th row of matrix $Q$
+
 $\phi(\cdot)$ is a row-wise kernel function
 
 $$\begin{aligned}
