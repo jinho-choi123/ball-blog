@@ -47,7 +47,7 @@ There is a parallel algorithm for prefix-sum operation.
 Let's say we have input $\{x_i\}_{i=0, 1, ..., N-1}$ and operation $\otimes$.
 The pseudo-code for parallel scan algorithm is as follows:
 
-```text
+```txt
 // Given inputs x[N] and ops
 // Assume N = 2**k
 
