@@ -22,7 +22,7 @@ Originally in vector space, we calculate the inner product as follows:
 $$v \cdot w = (1, 2) \cdot (3, 4) =1 \cdot3+ 2 \cdot 4=3+8=11$$
 
 For probability measure , inner product of two function is
-$$ \left< f, g\right>_\mu = \int_{-\infty }^{\infty } f(x) g(x)d\mu(x)$$
+$$ \left< f, g\right> _\mu = \int _{-\infty } ^{\infty } f(x) g(x)d\mu(x)$$
 
 You can easily derive this by thinking a function as a vector.
 

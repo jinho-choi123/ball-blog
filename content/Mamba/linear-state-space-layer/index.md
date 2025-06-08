@@ -41,7 +41,7 @@ If we set the initial state $x_{-1}=0$, then we can express $y_t$ as follows:
 $$y_k=C(\bar{A})^k \bar{B} u_0+C(\bar{A})^{k-1} \bar{B} u_1+\cdots+C \overline{A B} u_{k-1}+\bar{B} u_k+D u_k$$
 
 Which is applying kernel $K_L$ to $\{u_i\}_{i=1, 2, ..., k}$ sequence.
-$$\mathcal{K}_L(A, B, C)=\left(C A^i B\right)_{i \in[L]} \in \mathbb{R}^L=\left(C B, C A B, \ldots, C A^{L-1} B\right)$$
+$$\mathcal{K} _L (A, B, C)=\left(C A ^i B\right) _{i \in[L]} \in \mathbb{R} ^L =\left(C B, C A B, \ldots, C A ^{L-1} B\right)$$
 
 As a result, for all given inputs $\{u_i\}_{i=1, 2, ..., N}$ we can compute the $y_N$ in parallel.
 
