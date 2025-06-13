@@ -1,6 +1,7 @@
 +++
 title = "CacheBlend"
 slug = "cache-blend"
+date = 2025-04-15
 +++
 
 [CacheBlend: Fast Large Language Model Serving for RAG with Cached Knowledge Fusion](https://arxiv.org/abs/2405.16444)
