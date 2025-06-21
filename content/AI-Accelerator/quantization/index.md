@@ -78,3 +78,9 @@ $$\begin{aligned}
 48.72 & -19.56 & -18.41 & 20.33 \\\\
 \end{bmatrix}
 \end{aligned}$$
+
+## Quantization resolve memory pressure
+You may wonder how quantization is related to `reducing memory usage`.
+
+### Reducing weight matrix size
+We can quantize the Weight matrix and Bias matrix. Since these matrixes(or tensors) are stored in HBM for MatMul, quantizing them will effectively shrink the GPU HBM Usage.

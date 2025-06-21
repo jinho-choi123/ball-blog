@@ -19,7 +19,7 @@ Entropy is the quantity of the information. In other words, # of required bits t
 
 ### Entropy with probability distribution
 
-In the examples at [#information-theory](page-1.md#information-theory "mention"), I only mentioned about the case where possiblities of every cases are even. Coin can have Head or Tail by 50%, 50% probability.
+In the [upper example](#information-theory), I only mentioned about the case where possiblities of every cases are even. Coin can have Head or Tail by 50%, 50% probability.
 
 How can we express if the Head / Tail probability is 30% / 70%?
 
