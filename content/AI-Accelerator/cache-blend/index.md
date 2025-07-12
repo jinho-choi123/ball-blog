@@ -6,6 +6,10 @@ date = 2025-04-15
 
 [CacheBlend: Fast Large Language Model Serving for RAG with Cached Knowledge Fusion](https://arxiv.org/abs/2405.16444)
 
+## Seminar Materials
+I had a seminar with CacheBlend and CacheGen paper. Please checkout the materials attached below.
+[CacheBlend & CacheGen](/LMCache-Seminar/LMCache_Seminar.pdf)
+
 ## Problem
 There are many existing inference runtime that utilize KV cache reusing. This KV cache reusing shorten the computation cost and time during prefilling phase. However, existing methods cannot be applied when RAG is used.
 
