@@ -79,8 +79,6 @@ add_library(custom_math SHARED ${CSRC_FILES})
 
 
 target_include_directories(custom_math PUBLIC ${INCLUDE_DIR})
-
-
 ```
 
 ## Scenario 3: Making a executable and library. And use the library in the executable
