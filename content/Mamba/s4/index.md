@@ -3,7 +3,8 @@ title = "Structured Space Space for Sequence Modeling"
 slug = "s4"
 +++
 
-## What makes S4 special?
+# What makes S4 special?
+
 1. Addressing long-range dependencies using HIPPO framework
 2. Instead of directly calculating power of $\bar{A}$, S4 use truncated generating function and IFFT(Inverse Fast Fourier Transform) to generate convolution kernel $\bar{K}$.
 3. When $A$ matrix is DPLR, then by using Woodbury Identity, we can compute generating function $\hat{K}_L$ using efficient Cauchy dot-product.
@@ -11,11 +12,13 @@ slug = "s4"
 I will go through all the mathematical parts.
 
 ## Applying HIPPO framework
+
 Previous SSMs struggled because hidden state  couldn't store the past history. So they made a HIPPO framework, SSM that models past history using orthonormal basis.
 
 In HIPPO framework, there are 4 matrix $A, B, C, D$. But the most important matrix is $A$(which is called HIPPO matrix). So they bring the HIPPO matrix to S4.
 
 ## Using truncated generating function and IFFT to generate $\bar{K}$
+
 Computing $\bar{K}$ takes huge computation resource.
 $$\bar{K}=(\bar{C} ^ *\bar{A}^0\bar{B}, \bar{C} ^ *\bar{A}^1\bar{B}, ..., \bar{C} ^ * \bar{A}^{L-1}\bar{B})$$
 
@@ -37,7 +40,9 @@ This is exactly the same as DFT(Discrete Fourier Transform). Think $j$ as freque
 This means that if we can get the generating function $\hat{K}_L(z)$, we can easily calculate the convolution kernel $\bar{K}$ using IFFT.
 
 ## How to get generating function $\hat{K}_L(z)$
+
 ### Converting into inverse-form
+
 You may think that we need all $\bar{C}\bar{A}^k\bar{B}$ terms to get generating function $\hat{K}_L(z)$.
 
 Well, actually we don't. Let's look at some tricks to get $\hat{K}_L$ with low computation cost.
@@ -52,6 +57,7 @@ We are going to use $z$ from $exp(-i2\pi\frac{k}{L}):k\in[L]$.
 So $z^L$ is always 1.
 
 ### Convert $\bar{A}, \bar{B}$ into $A, B$
+
 Previously, we discretized $A, B$ into $\bar{A}, \bar{B}$. But we are doing the reverse.
 
 Since
@@ -70,6 +76,7 @@ $$\begin{aligned}
 \end{aligned}$$
 
 ### Assume $A$ is DPLR(Diagonal Plus Low-Rank), and apply Woodbury identity
+
 If we assume $A$ is DPLR, we can write $A$ as following: $\Lambda$ is a diagonal matrix $\Lambda \in \mathbb{C}^{N\times N}$.
 
 For $P, Q \in \mathbb{C}^{N \times 1}$,
@@ -86,6 +93,7 @@ $$\begin{aligned}\hat{K}_L=\frac{2}{1+z}[\tilde{C}^*R(z)^{-1}B-\tilde{C}^*R(z)^{
 where \ R(z)=\frac{2(1-z)}{\Delta(1+z)}I-\Lambda\end{aligned}$$
 
 ### Background: Cauchy Matrix
+
 With elements $\Omega=(w_i)\in\mathbb{C}^M$ and $\Lambda=(\lambda_j)\in \mathbb{C}^N$,
 
 Cauchy matrix is defined as follows:
@@ -93,6 +101,7 @@ $$M\in\mathbb{C} ^{M\times N} =M(\Omega, \Lambda)=(M_{ij}) _{i\in[M],\ j\in[N]} 
 M _{ij} =\frac{1}{\omega_i - \lambda _j}$$
 
 ### Background: Cauchy kernel(Cauchy dot-product)
+
 when $A \in \mathbb{C}^{M\times 1}, \ B \in \mathbb{C}^{M\times N}, \ C \in \mathbb{C}^{N \times 1}$ and $B$ is Cauchy matrix, then $A^TBC$ can be efficiently computed
 
 You don't have to understand why this form can be computed efficiently.
@@ -100,6 +109,7 @@ For simplicity, We are going to write Cauchy dot-product as
 $$A^TBC=k_{\Omega, \Lambda}(A, C)$$
 
 ### Applying Cauchy dot-product to the $\hat{K}_L$ calculation
+
 Since $R(z)^{-1}$ is a Cauchy-Matrix, we can apply Cauchy dot-product!
 
 $$\begin{aligned}
@@ -110,9 +120,11 @@ $$\begin{aligned}
 Since we can calculate the generating function $\hat{K}_L$ with low computation cost, we don't need huge computation to generate the convolution kernel $\bar{K}$.
 
 ## Wrapup
+
 This math-journey is everthing for S4. It was exciting to study FFT, Generating function. I hope this post helps you guide to the ultimate goal, Mamba.
 
 ## References
+
 [1] [https://srush.github.io/annotated-s4/](https://srush.github.io/annotated-s4/)
 
 [2] [https://arxiv.org/abs/2111.00396](https://arxiv.org/abs/2111.00396)

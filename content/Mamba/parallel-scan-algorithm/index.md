@@ -3,7 +3,8 @@ title = "Parallel Scan Algorithm"
 slug = "parallel-scan-algorithm"
 +++
 
-## What is a scan?
+# What is a scan?
+
 Let's say you have an following input sequence:
 $$x_0, x_1, x_2, ..., x_N$$
 
@@ -43,6 +44,7 @@ if __name__ == "__main__":
 ```
 
 ## Parallel Scan (Kogge-Stone Algorithm)
+
 There is a parallel algorithm for prefix-sum operation.
 Let's say we have input $\{x_i\}_{i=0, 1, ..., N-1}$ and operation $\otimes$.
 The pseudo-code for parallel scan algorithm is as follows:
@@ -75,6 +77,7 @@ while stride <= N:
 As a result, the time-complexity will be $O(log(N))$ due to parallel computation. The number of threads won't be a botteneck if we operate this algorithm in GPU or Accelerators.
 
 ## References
+
 [1] [https://junstar92.tistory.com/260](https://junstar92.tistory.com/260)
 
 [2] [https://blog.hyelie.com/entry/%EC%9D%B4%EC%A2%85%EB%B3%91%EB%A0%AC%EC%BB%B4%ED%93%A8%ED%8C%85-Parallel-Patterns-Reduction-1](https://blog.hyelie.com/entry/%EC%9D%B4%EC%A2%85%EB%B3%91%EB%A0%AC%EC%BB%B4%ED%93%A8%ED%8C%85-Parallel-Patterns-Reduction-1)

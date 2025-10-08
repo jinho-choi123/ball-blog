@@ -3,11 +3,13 @@ title = "Linear Transformation"
 slug = "linear-transformation"
 +++
 
-## Summary
+# Summary
+
 As you deal with vectors, you may heard of the term `Linear Transformation`.
 Linear Transformation is a process of changing the input vector. Actually, we can view it in two kinds: Changing the input Vector, Changing the Basis
 
 ## Linear Transformation
+
 Linear Transformation $L$ has following rules:
 
 $$\begin{aligned}
@@ -30,9 +32,11 @@ We expressed linear transformation in the equation (3). Since there are three te
 Let's take a look at two different perspectives.
 
 ## Viewing as changing input vector
+
 If we calculate $L \cdot \vec{v}$ first, we are viewing linear transformation as changing the input vector without changing the basis vector.
 
 ## Viewing as changing basis vector
+
 If we calculate $\vec{b}^T \cdot L$ first, we are viewing linear transformation as changing the basis vector without changing the input vector.
 
 I highly recommend this video. It explains linear transformation with good graphical materials.

@@ -4,7 +4,8 @@ slug = "cmake-tutorial"
 date = 2025-10-08
 +++
 
-## Intro
+# Intro
+
 CMake is a `Makefile` generator. It is a powerful tool that can help you manage your project's build system.
 
 This is done by recursively configuring the project with `CMakeLists.txt` files.
@@ -12,17 +13,19 @@ This is done by recursively configuring the project with `CMakeLists.txt` files.
 In this post, I will go through various scenarios of using CMake.
 
 ## Basic Usage
+
 To use Cmake, you usually find the `CMakeLists.txt` file in the root directory of your project. And you can build the project by running the following command:
 
 ```bash
 # create build directory and generate Makefile in the build directory
-cmake -B build . 
+cmake -B build .
 
 # Use the generated Makefile to build the project
 cmake --build build
 ```
 
 **Alternatively, you can use the following command to build the project:**
+
 ```bash
 mkdir build
 cd build
@@ -31,6 +34,7 @@ make
 ```
 
 ## Scenario
+
 - Making a executable
 - Making a shared library
 - Making a executable and library. And use the library in the executable
@@ -55,7 +59,6 @@ add_executable(build-executable csrc/main.cpp)
 ## Scenario 2: Making a shared library
 
 You can see the source code in [cmake-tutorial/build-library](https://github.com/jinho-choi123/cmake-tutorial/tree/main/build-library). Please read the README.md file for more information.
-
 
 `add_library` is a CMake command that adds a shared library to the project. This automatically generates shared library file.
 
@@ -106,9 +109,11 @@ target_link_libraries(cmake_hello custom_math)
 ```
 
 ## For more complex scenarios
+
 I have setup complex tutorials that use CMake+setuptools+pybind11+spdlog+google-test+pytest. Please checkout the following repository: [hyperaccel-logging-tutorial](https://github.com/jinho-choi123/hyperaccel-logging-tutorial).
 
 ## References
+
 [1] [https://github.com/jinho-choi123/cmake-tutorial](https://github.com/jinho-choi123/cmake-tutorial)
 
 [2] [https://medium.com/@onur.dundar1/cmake-tutorial-585dd180109b](https://medium.com/@onur.dundar1/cmake-tutorial-585dd180109b)

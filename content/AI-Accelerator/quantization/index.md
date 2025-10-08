@@ -4,17 +4,20 @@ slug = "quantization"
 date = 2025-06-13
 +++
 
-## Summary
+# Summary
+
 Current bottleneck for AI hardware is memory bandwidth. Serving large models and maintaining its KV-cache use hundreds of GB of memory. Quantization is a technique that is used during model inference. Instead of using `fp16`, it uses `int8` or even more smaller bits. By doing so, we can use less memory(for storing model weights) and less bandwidth.
 
 This post introduces fundamental quantization method.
 
 ## Quantization
+
 Quantization in AI is about compacting the data using lesser bits. For example, most popular quantization method nowaday is converting `fp16` into `int8`. By doing so, we are just using half of bits during calculation.
 
 However, we should be careful using quantization because quantization inevitably loses precision of the data. As we quantize fp16 into int8, and dequantize int8 into fp16, informations will be lost.
 
 ## Vector Quantization
+
 Let's say we have following data:
 $$X_{fp16} = \left[ 1.1, 4.5, 2.3, 5.6 \right]$$
 
@@ -36,6 +39,7 @@ X_{int8}
 <img src="quantization.png" alt="quantization from fp16 to int8">
 
 ## Vector Multiplication with quantization
+
 Now let's look at how quantization is used in multiplication. I am going to look at vector multiplication, but you can easily apply it to matrix multiplication.
 
 $$
@@ -46,6 +50,7 @@ $$
 Let's see how we can use quantization during cross-product: $X_{fp16}^T \cdot Y_{fp16}$
 
 ### Quantize
+
 $$ \begin{aligned}
 &X_{int8} = \left\lceil s_{X_{fp16}} \times X_{fp16}\right\rfloor
 =\left[ 25, 102, 52, 127 \right] \\\\
@@ -54,6 +59,7 @@ $$ \begin{aligned}
 \end{aligned}$$
 
 ### Cross-product with quantized vector
+
 $$\begin{aligned}
 C_{int32}
 &=  X_{int8}^T \cdot Y_{int8} \\\\
@@ -80,7 +86,9 @@ $$\begin{aligned}
 \end{aligned}$$
 
 ## Quantization resolve memory pressure
+
 You may wonder how quantization is related to `reducing memory usage`.
 
 ### Reducing weight matrix size
+
 We can quantize the Weight matrix and Bias matrix. Since these matrixes(or tensors) are stored in HBM for MatMul, quantizing them will effectively shrink the GPU HBM Usage.

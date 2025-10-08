@@ -6,11 +6,13 @@ date = 2025-04-15
 
 [CacheBlend: Fast Large Language Model Serving for RAG with Cached Knowledge Fusion](https://arxiv.org/abs/2405.16444)
 
-## Seminar Materials
+# Seminar Materials
+
 I had a seminar with CacheBlend and CacheGen paper. Please checkout the materials attached below.
 [CacheBlend & CacheGen](/LMCache-Seminar/LMCache_Seminar.pdf)
 
 ## Problem
+
 There are many existing inference runtime that utilize KV cache reusing. This KV cache reusing shorten the computation cost and time during prefilling phase. However, existing methods cannot be applied when RAG is used.
 
 > **RAG**
@@ -29,6 +31,7 @@ At (c), it utilize KV cache of all the chunks, but they aren't cross-attentioned
 At (d), paper propose new method that reuse KV cache of all the chunks and also apply cross-attention in negligible overhead.
 
 ## Solution
+
 The main problem is that we should apply cross-attention between prefix chunk's KV cache. And fully doing cross-attention is just the case (a).
 
 In this paper, it starts with a following idea:
@@ -38,6 +41,7 @@ In this paper, it starts with a following idea:
 If we could select important tokens from chunk-1, we can apply effective cross-attention that outputs KV cache similar to `Full re-compute KV cache`.
 
 ## How can we choose important tokens?
+
 To answer this question, we have to take a look at case (c).
 
 Case (c) outputs poor quality result because it's KV cache has huge gap with case (a)'s KV cache.
@@ -61,6 +65,7 @@ But this doesn't make sense. To calculate gap between ideal one, we should know 
 As adding up KV cache by fusing KV-caches, we can calculate how much KV cache changed. Then we can calculate the 15% HKVD(Highest KV Deviation) tokens and apply cross-attention.
 
 ## Pipelining to hide recompute time
+
 As we reuse KV cache, there is a step of loading KV cache to GPU. If we pipeline the KV cache loading and KV cache recompute, then we can hide the recompute time.
 
 The paper suggest selecting 15% of tokens for cross-attention during fusion will hide the recompute time.

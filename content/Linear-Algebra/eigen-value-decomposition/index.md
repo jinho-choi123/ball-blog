@@ -3,7 +3,8 @@ title = "Eigen Value Decomposition(EVD)"
 slug = "eigen-value-decomposition"
 +++
 
-## Eigen Values and Eigen Vectors
+# Eigen Values and Eigen Vectors
+
 Let's say we have matrix $A \in \mathbb{R}^{n\times n}$.
 
 The solutions $x \in \mathbb{R}^{n \times1}$ and $\lambda \in \mathbb{R}$ for the following equation are called eigen vectors and eigen values.
@@ -56,11 +57,13 @@ If we apply inverse of $X$ to each side, we get the following equation:
 $$A=X \Lambda X^{-1}$$
 
 ## Special Case when A is symmetric square Matrix
+
 There is a special case for EVD.
 If Matrix $A$ is symmetric and square and have distinct eigen-values, then we can express EVD as follows:
 $$A=X\Lambda X^T$$
 
 ### Proof of special case
+
 We just have to prove that $X^{-1}=X^T$, which means $X$ is orthogonal matrix.
 $$\lambda_1v_1 \cdot v_2 = A v_1 \cdot v_2 = A  v_2 \cdot v_1 = \lambda_2 v_2 \cdot v_1 = \lambda_2 v_1 \cdot v_2 \ ...(1)$$
 
@@ -72,4 +75,5 @@ Since we assumed matrix $A$ have distinct eigen-values, we can derive $v_1 \cdot
 So we can say that $X^{-1}=X^T$
 
 ## References
+
 [1] [https://angeloyeo.github.io/2020/11/19/eigen_decomposition.html](https://angeloyeo.github.io/2020/11/19/eigen_decomposition.html)

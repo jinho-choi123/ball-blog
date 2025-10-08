@@ -3,7 +3,8 @@ title = "SVM"
 slug = "svm"
 +++
 
-## What is SVM?
+# What is SVM?
+
 SVM(Support Vector Machine) is a linear classifier that maximizes the margin between two support vectors.
 
 <img src="svm.png" alt="Support Vector Machine"/>
@@ -11,6 +12,7 @@ SVM(Support Vector Machine) is a linear classifier that maximizes the margin bet
 Support vectors are line that express the bound containing the data-point.
 
 ## Solving SVM
+
 From SVM, we should get the weight $w$ and bias $b$ that maximize the margin.
 
 Support vector 1: $w^Tx+b = +1 \ ...(1)$
@@ -42,6 +44,7 @@ $$\begin{aligned}
 \end{aligned}$$
 
 ### Objective of SVM
+
 Our objective is to maximize the margin while satisfying the condition. We can express this objective as mathematical format.
 
 $$\begin{aligned}
@@ -77,11 +80,13 @@ $$L = \sum_{i=1}^l \alpha_i - \frac{1}{2}\sum_{i=1}^l\sum_{j=1}^l \alpha_i \alph
 Using equation (10), we can get all the $\alpha_i's$, and calculate the weights and bias.
 
 ## Can SVM only do Linear Classification?
+
 Since support vector is linear, does SVM only supports linear classification?
 
 No, SVM supports complex classification.
 
 ### Kernel
+
 In upper example, we directly used $x$ in SVM calculation. How about using more complex vectors originated from $x$?
 $$\begin{aligned}
 &x = (x_0, x_1) \\\\
@@ -93,6 +98,7 @@ The kernel function $\phi(x)$ expanded the dimension of $x$ from 2 to 5. We can 
 <img src="svm-kernel.png" alt="svm kernel figure">
 
 ### Overhead of Kernel Method
+
 To solve the SVM, we should solve the following equation:
 $$\begin{aligned}
 &\phi: \mathbb{R}^n \to \mathbb{R}^d, d \gg n \\\\
@@ -104,6 +110,7 @@ The computational cost of this equation is quadratic, which is $O(d^2)$
 If $d = 100,000,000$, then the computational cost will explode. To resolve this, we use Kernel-trick.
 
 ### Kernel-Trick
+
 Kernel-trick is defining $\phi(x)$ that is easy to compute $\phi(x) \phi(z)$.
 
 $$K(x, z) = \phi(x)\phi(z)$$
@@ -116,6 +123,7 @@ $$K_{polynomial}(x, z) = (x^Tz + c)^m, \ where \ c> 0$$
 In most case, we don't need to know the exact function $\phi(x)$. We just need to know $K(x, z)$. We can ensure that there exists $\phi(x)$ because if certain condition is satisfied, we ensure that $\phi(x)$ exists for kernel $K(x, z)$.
 
 ### Mercer's Theorem
+
 A symmetric function $K(x, z)$ can be expressed as an dot product
 
 $$K(x, z) = <\phi(x), \phi(z)> for \ some \ \phi$$

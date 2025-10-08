@@ -5,15 +5,18 @@ slug = "budalloc"
 
 [BUDAlloc: Defeating Use-After-Free Bugs by Decoupling Virtual Address Management from Kernel](https://www.usenix.org/conference/usenixsecurity24/presentation/ahn)
 
-## My Contributions
+# My Contributions
+
 1. Built Benchmark script that shows the performance/memory overhead of BUDAlloc compared to other UAF protection systems such as FFMalloc, DangZero etc.
 2. Built an automation script using gdb, which shows if the system(BUDAlloc, FFMalloc, DangZero etc) detected/prevented/vulnerable to various CVEs.
 3. Proposed an optimization to the system, tested with several benchmarks if it is applicable.
 
 ## Summary
+
 BUDAlloc use OTA(One-Time-Allocator) concept to prevent Use-After-Free bugs.
 
 ### OTA(One-Time-Allocator)
+
 OTA is a concept of never reusing Memory chunk.
 
 <img src="ota-allocation.png" alt="OTA allocation">
@@ -25,6 +28,7 @@ However, these basic OTA has two problems: Internal fragmentation and frequent s
 BUDAlloc effectively solved two problems as follows
 
 ## Solving Internal Fragmentation
+
 BUDAlloc solved internal fragmentation using virtual aliasing. Virtual aliasing is a concept that makes another layer for virtual memory system. It makes the object allocated in seperate virtual page, but actually in same physical page.
 
 <img src="virtual-aliasing1.png" alt="Virtual Aliasing 1">

@@ -6,14 +6,15 @@ date = 2025-06-13
 
 [LLM.int8(): 8-bit Matrix Multiplication for Transformers at Scale](https://arxiv.org/pdf/2208.07339)
 
-## BitsAndBytes
+# BitsAndBytes
+
 Have you heard of [BitsAndBytes](https://github.com/bitsandbytes-foundation/bitsandbytes)?
 
 It is a well-known quantization library for LLM Quantization of `fp16` to `int8`.
 
 In this post, we are going to look at the core implementation of this library.
 
-**We are going to look at code that is implemented in Python with Triton**
+We are going to look at code that is implemented in Python with Triton.
 
 ## Row-wise Quantization
 
@@ -62,7 +63,6 @@ def quantize_rowwise(x: torch.Tensor):
 
 It calls `_quantize_rowwise` function per row of the input tensor `x`. i.e. $x \in \mathbb{R}^{n \times m}$, then `_quantize_rowwise` is called $n$ times.
 
-
 In `_quantize_rowwise` function, it applies simple `fp16` to `int8` quantization. For more details, please checkout [quantization](@/AI-Accelerator/quantization/index.md)
 
 <img src="quantize-row-wise.png" alt="explain quantize-row-wise function">
@@ -70,7 +70,6 @@ In `_quantize_rowwise` function, it applies simple `fp16` to `int8` quantization
 ### Why we set BLOCK_SIZE as `width of x`?
 
 The reason why we don't make `BLOCK_SIZE` more smaller(making grid more compact) is because of synchronizing cost.
-
 
 If we split a row into two blocks, then two threads that manages a single row should be synchronized(communicate the `element max` data). This cost is huge, which makes the performance worse.
 
@@ -80,7 +79,7 @@ The reason the code calculates `P2` is memory alignment issue. For most hardware
 
 So we use P2, and mask them out with `row_mask`.
 
-
 ## Summary
+
 I went through the triton implementation of bitsandbytes quantization.
 I believe looking at the implementation is the best way for understanding.

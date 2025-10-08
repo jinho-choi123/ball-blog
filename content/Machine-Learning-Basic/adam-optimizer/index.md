@@ -3,7 +3,8 @@ title = "Adam Optimizer"
 slug = "adam-optimizer"
 +++
 
-## Summary
+# Summary
+
 In most training in Deep Learning, we use Adam Optimizer. In this post, I would like to discuss what is an optimizer, and reason we use Adam optimizer.
 
 If you want more detailed information about Adam optimizer, please look at the following paper:
@@ -11,6 +12,7 @@ If you want more detailed information about Adam optimizer, please look at the f
 [Adam: A Method for Stochastic Optimization](https://arxiv.org/abs/1412.6980)
 
 ## What is an optimizer?
+
 In Deep learning, we optimize the model to make lower loss. In other words, we call this procedure Training.
 
 To optimize(minimizing the loss) the model, we use 'Gradient Descent method'. This is done by calculating each parameter's gradient and subtract it from the parameter value.
@@ -18,6 +20,7 @@ To optimize(minimizing the loss) the model, we use 'Gradient Descent method'. Th
 $$\theta_{t+1} = \theta_t - \lambda \frac {\partial L(X, \theta_t, \alpha_t, \beta_t, ...)}{\partial \theta_t}$$
 
 ## Why we need algorithm for optimizer?
+
 Following GIF compares various algorithms in the local minima situation.
 
 SGD cannot escape the local minima. Momentum algorithm escapes at final seconds. Other algorithms could easily escape the local minima.
@@ -29,6 +32,7 @@ We are going to focus on Adam algorithm, but first things first! We are going to
 <img src="optimizer.gif" alt="Comparison of various optimizers"/>
 
 ## Momentum Algorithm
+
 Momentum algorithm is an algorithm that use previous moment value to calculate current moment.
 $$\begin{aligned}
 &m_t = \alpha \cdot m_{t-1} + (1-\alpha) \cdot g_t \\\\
@@ -42,6 +46,7 @@ $\theta_t$: model parameter at timestamp t
 $\lambda$: learning rate constant
 
 ## RMSprop Algorithm
+
 The key of RMSprop is following:
 > If the gradient is big, the parameter convergence is reached early. On the other hand, if the gradient is small, then the parameter convergence is delayed.
 
@@ -55,6 +60,7 @@ $$\begin{aligned}
 \end{aligned}$$
 
 ## Adam
+
 Adam algorithm is mixture of Momentum and RMSprop.
 
 <img src="adam-algorithm.png" alt="Algorithm used in Adam Optimizer"/>
@@ -62,6 +68,7 @@ Adam algorithm is mixture of Momentum and RMSprop.
 You can see there is a bias-correction step during the algorithm. Let's take a look at the reason
 
 ## Bias correction in Adam
+
 Let's think $m_t, v_t, g_t$ as a probability distribution.
 For example, $g_1, g_2, ..., g_t$ are sampled from distribution $G$.
 
@@ -88,6 +95,7 @@ So in Adam divides $m_t, v_t$ by $1-\beta_1^t \ and \ 1-\beta_2^t$ to correct th
 <img src="adam-bias-correction.png" alt="Bias Correction in Adam Optimizer"/>
 
 ## References
+
 [1] [https://www.deepchecks.com/glossary/rmsprop](https://www.deepchecks.com/glossary/rmsprop)
 
 [2] [https://optimization.cbe.cornell.edu/index.php?title=File:1_-_2dKCQHh_-_Long_Valley.gif](https://optimization.cbe.cornell.edu/index.php?title=File:1_-_2dKCQHh_-_Long_Valley.gif)

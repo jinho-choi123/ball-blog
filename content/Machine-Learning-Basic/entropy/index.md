@@ -3,7 +3,7 @@ title = "Entropy"
 slug = "entropy"
 +++
 
-## Information theory
+# Information theory
 
 Let's say I want to send the result of 10 coin-flips with only 0 and 1(which is called bit). We can send it by sending 1 if Head appears, and 1 if Tail appears.
 

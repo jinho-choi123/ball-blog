@@ -7,10 +7,12 @@ date = 2025-04-15
 [Cost-Efficient Large Language Model Serving for Multi-turn Conversations with
 CachedAttention](https://arxiv.org/pdf/2403.19708)
 
-## Summary
+# Summary
+
 This paper propose a KV caching system to reduce the computation during LLM inference.
 
 ## Background
+
 The paper distinguishes LLM inferencing into two phases:
 
 1. Prefilling: Making KV caches for previous prompts + Generate the next token
@@ -19,6 +21,7 @@ The paper distinguishes LLM inferencing into two phases:
 The inference engine first do the prefilling-phase. And then iterate decoding-phase until it outputs EOF token or reaches maximum generation length.
 
 ## Problem proposal
+
 <img src="cached-attention.png" alt="CachedAttention">
 
 Most of realworld tasks handle multi-turn conversations. And this is the part that problem happens.
@@ -26,9 +29,11 @@ Most of realworld tasks handle multi-turn conversations. And this is the part th
 For every future turn(Turn 2, Turn 3, ...), it should do the prefilling-phase again. Which is just a duplicate computation. As the conversation length gets bigger and bigger, recomputation cost in prefilling-phase takes 99% of the inference computation.
 
 ## Contribution
+
 <img src="cached-attention-architecture.png" alt="CachedAttention Architecture" >
 
 The paper suggests a solution for the problem, `CachedAttention`
+
 1. Cache the previous KV values, and use it in the future turn.
 2. Overlap cache saving/loading operation with Transformer operations.
 3. Design hierarchical KV cache placement and positional encoding decoupled KV cache scheme.

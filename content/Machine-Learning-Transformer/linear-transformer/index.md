@@ -5,10 +5,12 @@ slug = "linear-transformer"
 
 [Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention](https://arxiv.org/abs/2006.16236)
 
-## Summary
+# Summary
+
 I got impressed by this fantastic paper. It uses feature mapping in self-attention, and optimize the computation cost to `linear`.
 
 ## Problem with Transformer Model
+
 The transformer model has high computation and memory cost.
 Since it has to calculate the similarity for every embedding pair in query and keys, computation cost is $O(N^2 \cdot ?)$. Transformer has to store all the computation results because of softmax computation, which brings memory cost to $O(N^2 \cdot ?)$. ($N$ is sequence length)
 As sequence length grow, the computation and memory cost increase dramatically.
@@ -24,6 +26,7 @@ $$V_i' = \frac{\sum_{j}^{N}sim(Q_i, K_j) \cdot V_j}{\sum_{j}^{N}sim(Q_i, K_j)} .
 The computation cost would be $O(N^2 \cdot max(D, M))$
 
 ## How $O(N^2 \cdot max(D, M))$ came out?
+
 You may be curious how $O(N^2 \cdot max(D, M))$ came up.
 
 In denominator, it takes $O(D)$ to multiply $sim(\cdot)$. We are caching $sim(\cdot)$ result, and use it during calculating numerator.
@@ -33,6 +36,7 @@ In numerator, it takes $O(M)$ to multiply $sim(\cdot) \cdot V_j$ part. (We are r
 Since calculating denominator and numerator can be done in parallel, overal computation cost $O(N^2 \cdot max(D, M))$
 
 ## Using feature-mapping(kernel function)
+
 Linear Transformer is closely related to kernel-trick in SVM.
 
 $$sim(Q_i, K_j) = \phi(Q_i) \cdot \phi(K_j)$$
@@ -44,7 +48,6 @@ $$\begin{aligned}
 &V_i'=\frac{\sum_j^N \phi(Q_i)^T\phi(K_j)V_j}{\sum_j^N\phi(Q_i)^T\phi(K_j)} \\\\
 &= \frac{\phi(Q_i)^T\sum_j^N\phi(K_j)V_j}{\phi(Q_i)^T\sum_j^N\phi(K_j)} ... (2)
 \end{aligned}$$
-
 
 The term $\sum_j^N\phi(K_j)V_j$ and $\sum_j^N\phi(K_j)$ can be reused. $C$ is the dimension of $\phi(\cdot)$.
 Then the computation cost for self-attention is $O(NCM)$
@@ -60,6 +63,7 @@ Calculating the denominator takes $O(C)$.
 Eventually, the calculation cost is $O(NCM)$ because getting $V$ means getting every $V_i', i=0...N-1$.
 
 ## Transformer is RNN in Causal Masking
+
 The paper suggest an interesting perspective: viewing Transformer as an RNN
 
 Transformer can be used as autoregressive model by masking the attention computation such that $i$th position can only influence $j$th position s.t. $j \le i$.

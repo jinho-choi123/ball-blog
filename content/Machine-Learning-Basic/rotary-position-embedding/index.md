@@ -5,7 +5,8 @@ slug = "rotary-position-embedding"
 
 [RoFormer: Enhanced Transformer with Rotary Position Embedding](https://arxiv.org/abs/2104.09864)
 
-## Why do we need Positional Encoding
+# Why do we need Positional Encoding
+
 In Transformer model, we apply self-attention method to calculate the relationship between other tokens.
 
 <img src="attention.png" alt="Attention Mechanism">
@@ -22,6 +23,7 @@ If we embed the positional information before attention method, then we can make
 <img src="with-positional-embedding.png" alt="with positional embedding">
 
 ## How to Embed Positional Information
+
 In the paper "Attention is All you Need", it uses Sinusoidal Positional Encoding. It adds sinusoidal value to the embedding vector to encode position information.
 Please look at the paper to understand how it is used in the Transformer.
 
@@ -30,6 +32,7 @@ Please look at the paper to understand how it is used in the Transformer.
 Now we can embed position information by slightly changing the embedding vector. Let's look at Rotary Positional Encoding(RoPE), an alternative of Sinusoidal Positional Encoding.
 
 ## Rotary Positional Encoding(RoPE)
+
 Embedding vector is a vector in d_model dimension space. In RoPE, we don't add values to the vector, but we rotate the vector.
 
 <img src="rotation-matrix.png" alt="rotation matrix">
@@ -37,6 +40,7 @@ Embedding vector is a vector in d_model dimension space. In RoPE, we don't add v
 RoPE have many interesting feature. To deeply understand RoPE, we have to understand how we came up with this encoding scheme.
 
 ## RoPE in 2D case
+
 To rotate a embedding vector, we apply matrix multiplication with `rotation matrix`.
 
 $$\begin{bmatrix}
@@ -95,11 +99,13 @@ x_n^{(1)} \\ x_n^{(2)}
 \end{aligned}$$
 
 ## RoPE in General Form
+
 We can simply expand the 2D form of RoPE into multi-dim.
 
 <img src="rope.png" alt="rotary position embedding">
 
 ## RoPE with Linear Transformer
+
 RoPE perfectly fits with Linear Transformer
 
 In linear transformer, we can rewrite the attention method as follows:
@@ -135,8 +141,8 @@ $$\begin{aligned}
 
 You might think that we cannot reuse $\sum_{n}^{N}\phi(K_n)V_n$ term no more. But this is not true. The norm of the term doesn't change, and it is just rotating as  change. So we can still reuse the term!
 
-
 ## References
+
 [1] [https://arxiv.org/abs/2104.09864](https://arxiv.org/abs/2104.09864)
 [2] [https://arxiv.org/pdf/2006.16236](https://arxiv.org/pdf/2006.16236)
 [3] [https://blog.eleuther.ai/rotary-embeddings/](https://blog.eleuther.ai/rotary-embeddings/)

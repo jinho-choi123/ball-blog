@@ -3,7 +3,7 @@ title = "Monte-Carlo Method"
 slug = "monte-carlo-method"
 +++
 
-## When do we use Monte-Carlo Method?
+# When do we use Monte-Carlo Method?
 
 Let's say we don't know the parameters of Gaussian distribution P, but we can sample as much as we want.
 
@@ -12,6 +12,7 @@ Gaussian distribution has two parameters: mean $\mu$ and standard deviation $\si
 We can use Monte-Carlo Method at this situation!
 
 ## What is Monte-Carlo Method?
+
 Monte-Carlo Method is a way to get information about the distribution using lots of sampling.
 
 At the example above, we can sample 1,000,000,000 times to get the mean and std of the distribution P. There may be some errors, but as # of sampling gets bigger, error gets smaller.

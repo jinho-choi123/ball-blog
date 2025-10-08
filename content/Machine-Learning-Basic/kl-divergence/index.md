@@ -3,7 +3,8 @@ title = "KL-Divergence"
 slug = "kl-divergence"
 +++
 
-## What is Kullback-Leibler Divergence?
+# What is Kullback-Leibler Divergence?
+
 KL-Divergance is defined as the entropy difference between two probability distribution. In other words, it tells if two distributions are similar or not.
 
 Cross-entropy gets smaller as two distribution gets similar. Let's take a look at the definition of cross-entropy.
@@ -11,6 +12,7 @@ Cross-entropy gets smaller as two distribution gets similar. Let's take a look a
 $$H(P, Q) = - \sum p \cdot log_2(q)$$
 
 ## Definition of KL-Divergence
+
 Using cross-entropy, we can express KL-Divergence:
 
 $$KL(P||Q) = H(P, Q) - H(P) = - \sum p \cdot log_2(\frac{p}{q})$$
@@ -28,6 +30,7 @@ Also, following obvious because of the definition of KL-divergence.
 $$KL(P||Q) \ne KL(Q||P)$$
 
 ## Jensen-Shannon Divergence
+
 JS-divergence is also used to express the entropy difference between two probability distribution. It is defined as followings:
 
 $$ \begin{aligned}
@@ -37,4 +40,5 @@ $$ \begin{aligned}
 JS-divergence is expressed using KL-divergence, but not used as much as KL-divergence.
 
 ## References
+
 [1] [https://hyunw.kim/blog/2017/10/27/KL_divergence.html](https://hyunw.kim/blog/2017/10/27/KL_divergence.html)

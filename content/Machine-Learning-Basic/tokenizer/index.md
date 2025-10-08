@@ -3,7 +3,8 @@ title = "Tokenizer"
 slug = "tokenizer"
 +++
 
-## Summary
+# Summary
+
 In LLM(Large Language Model), model understands meaning of the corpus and generates an answer. Since deep learning models only understand vectors, we need a step to convert the words(or sentence) into a vector(and vice versa). This step is called `Tokenization`.
 
 Following figure is tokenization result using GPT-4 Tokenizer.
@@ -11,6 +12,7 @@ Following figure is tokenization result using GPT-4 Tokenizer.
 <img src="tokenizer-example.png" alt="Tokenizer Example">
 
 The overall scheme of tokenization is as follows:
+
 1. Define a vocab codebook
 2. Segmentize the sentence into tokens
 3. Convert tokens into token_ids using codebook.
@@ -23,6 +25,7 @@ We are going to look at some vocab codebook generation algorithm.
 
 BPE is a text compression algorithm that merges frequent character pair into single symbol.
 For example, let's see the sentence "hug huggingface"
+
 1. Divide sentence into characters. \
 ["h", "u", "g", "h", "u", "g", "g", "i", "n", "g", "f", "a", "c", "e"]
 
@@ -41,6 +44,7 @@ For example, let's see the sentence "hug huggingface"
 ...
 
 ## Wordpiece Encoding
+
 Wordpiece encoding is similar to BPE, but have different merging algorithm. It merges character pair based on score.
 
 $$score = \frac{P(pair)}{P(pair[0])P(pair[1])}$$
@@ -48,6 +52,7 @@ $$score = \frac{P(pair)}{P(pair[0])P(pair[1])}$$
 The probability $P(pair), P(pair[0]), P(pair[1])$ means the frequency of pair/character appearing in the sentence.
 
 ## Using a Tokenizer
+
 In real-world NLP application, we use various pretrained tokenizer. The following code use gpt2 pretrained tokenizer(BPE) and tokenize the given prompt.
 
 You can see that input_ids now have index number of each tokens.
@@ -67,6 +72,7 @@ print(input_ids)
 ```
 
 ## References
+
 [1] [https://databoom.tistory.com/entry/NLP-%ED%86%A0%ED%81%AC%EB%82%98%EC%9D%B4%EC%A0%80-Tokenizer](https://databoom.tistory.com/entry/NLP-%ED%86%A0%ED%81%AC%EB%82%98%EC%9D%B4%EC%A0%80-Tokenizer)
 
 [2] [https://huggingface.co/learn/nlp-course/en/chapter6/5](https://huggingface.co/learn/nlp-course/en/chapter6/5)
