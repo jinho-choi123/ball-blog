@@ -106,3 +106,9 @@ add_subdirectory(lib/)
 add_executable(cmake_hello exec/main.cpp)
 target_link_libraries(cmake_hello custom_math)
 ```
+
+## References
+[1] [https://github.com/jinho-choi123/cmake-tutorial](https://github.com/jinho-choi123/cmake-tutorial)
+[2] [https://medium.com/@onur.dundar1/cmake-tutorial-585dd180109b](https://medium.com/@onur.dundar1/cmake-tutorial-585dd180109b)
+[3] [https://junstar92.tistory.com/204](https://junstar92.tistory.com/204)
+[4] [https://gist.github.com/dongbum/d1d49e38a20f9cf52ea39f9ce2702160](https://gist.github.com/dongbum/d1d49e38a20f9cf52ea39f9ce2702160)
