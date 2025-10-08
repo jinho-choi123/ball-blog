@@ -107,6 +107,9 @@ add_executable(cmake_hello exec/main.cpp)
 target_link_libraries(cmake_hello custom_math)
 ```
 
+## For more complex scenarios
+I have setup complex tutorials that use CMake+setuptools+pybind11+spdlog+google-test+pytest. Please checkout the following repository: [hyperaccel-logging-tutorial](https://github.com/jinho-choi123/hyperaccel-logging-tutorial).
+
 ## References
 [1] [https://github.com/jinho-choi123/cmake-tutorial](https://github.com/jinho-choi123/cmake-tutorial)
 [2] [https://medium.com/@onur.dundar1/cmake-tutorial-585dd180109b](https://medium.com/@onur.dundar1/cmake-tutorial-585dd180109b)
