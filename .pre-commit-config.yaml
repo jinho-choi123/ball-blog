@@ -15,7 +15,7 @@ repos:
     rev: v0.0.154 # Use the latest release tag
     hooks:
       - id: rumdl
-        args: ["content", "--fix"]
+        args: [content, --fix]
 
   - repo: https://github.com/openstack/bashate
     rev: 2.1.1
