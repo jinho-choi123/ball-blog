@@ -8,7 +8,17 @@ I am interested in Computer System(OS, Architecture), and also deep-diving into 
 I am happy to organize my work in this blog. Please feel free to leave comments or contact me.
 Thank you!
 
-# [View My CV](/cv/ball-cv.pdf)
+# My Curriculum Vitae
+
+You can check my CV for more details about me.
+
+[View My CV](/cv/ball-cv.pdf)
+
+## Blog Posting Roadmap
+
+You can check my blog posting roadmap in the following link:
+
+[Blog Posting Roadmap](https://www.notion.so/28913369810980259203c645758a553a?v=28913369810981859410000cf9e11b61&source=copy_link)
 
 ## Contact
 
