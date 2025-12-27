@@ -40,4 +40,4 @@ As you can see, ring approach utilizes the full bandwidth of the links.
 
 ## Time Complexity of Ring AllReduce Algorithm
 
-In general, for $N$ devices and $B$bytes/s bandwidth, ring approach takes $2 * (N-1) / N$ time to complete the allReduce operation for $B$ bytes of data.
+In general, for $N$ devices and $B$bytes/s bandwidth, ring approach takes $2 \cdot (N-1) / N$ time to complete the allReduce operation for $B$ bytes of data.
