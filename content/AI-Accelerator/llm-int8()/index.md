@@ -63,7 +63,7 @@ def quantize_rowwise(x: torch.Tensor):
 
 It calls `_quantize_rowwise` function per row of the input tensor `x`. i.e. $x \in \mathbb{R}^{n \times m}$, then `_quantize_rowwise` is called $n$ times.
 
-In `_quantize_rowwise` function, it applies simple `fp16` to `int8` quantization. For more details, please checkout [quantization](@/AI-Accelerator/quantization/index.md)
+In `_quantize_rowwise` function, it applies simple `fp16` to `int8` quantization. For more details, please checkout [quantization](@/AI-Accelerator/quantization-basic/index.md)
 
 <img src="quantize-row-wise.png" alt="explain quantize-row-wise function">
 
