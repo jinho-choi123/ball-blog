@@ -1,12 +1,12 @@
 +++
-title = "Quantization"
-slug = "quantization"
+title = "Quantization Basic"
+slug = "quantization-basic"
 date = 2025-06-13
 +++
 
 # Summary
 
-Current bottleneck for AI hardware is memory bandwidth. Serving large models and maintaining its KV-cache use hundreds of GB of memory. Quantization is a technique that is used during model inference. Instead of using `fp16`, it uses `int8` or even more smaller bits. By doing so, we can use less memory(for storing model weights) and less bandwidth.
+Current bottleneck for AI hardware is memory bandwidth. Serving large models and maintaining its KV-cache use hundreds of GB of memory. Quantization is a technique that is used during model inference. Instead of using `fp16`, it uses `int8` or even more smaller bits. By doing so, we can use less memory(for storing model weights) and boost the compute time(for example, CUDA Tensor Core FLOPS is x2 bigger in INT8 compared to FP16 data type).
 
 This post introduces fundamental quantization method.
 
@@ -85,10 +85,7 @@ $$\begin{aligned}
 \end{bmatrix}
 \end{aligned}$$
 
-## Quantization resolve memory pressure
+## Benefits of Quantization
 
-You may wonder how quantization is related to `reducing memory usage`.
-
-### Reducing weight matrix size
-
-We can quantize the Weight matrix and Bias matrix. Since these matrixes(or tensors) are stored in HBM for MatMul, quantizing them will effectively shrink the GPU HBM Usage.
+1. Reduces activation and weight memory footprint. Since it use INT8 instead of FP16, it halves the data size.
+2. Increase throughputs. For example, NVIDIA H100 Tensor Core can perform 2x more FLOPS in INT8 compared to FP16.
